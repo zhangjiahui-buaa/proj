@@ -12,12 +12,17 @@ The following two queries should give the same result. It's true in sqlite3.31.1
 
 
 ## Reproduce the bug
-    Basically you need two version of sqlite on your computer.
-    I use conda to do this.
-    First create an environment with sqlite3.40.0 : conda create -n newer sqlite=3.40.0
+Basically you need two version of sqlite on your computer.
+I use conda to do this.
+First create an environment with sqlite3.40.0 : 
+> conda create -n newer sqlite=3.40.0
+
 then run the abovementioned testcase. The first query returns 0.202107171794723 and 522035749 but second one only returns 0.202107171794723
 
-    Then create an environment with sqlite3.30.0 : conda create -n older sqlite=3.30.0
-    then run the abovementioned testcase. The two queries both return 522035749 and 0.202107171794723
+Then create an environment with sqlite3.30.0 : 
+
+> conda create -n older sqlite=3.30.0
+    
+then run the abovementioned testcase. The two queries both return 522035749 and 0.202107171794723
 
 
