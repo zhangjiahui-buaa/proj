@@ -1,17 +1,50 @@
 import sqlite3
 import argparse
-
+import os
 parser = argparse.ArgumentParser(description='Specify db and queries.')
-parser.add_argument('--db_path', type=str, required=True)
-parser.add_argument('--queries_path', type=str, required=True)
+parser.add_argument('--dbs_path', type=str)
+parser.add_argument('--queries_path', type=str)
 args = parser.parse_args()
-con = sqlite3.connect(args.db_path)
-sqls = open(args.queries_path,'r')
-cur = con.cursor()
-for line in sqls.readlines():
-    print(line.strip())
-    cur.execute(line.strip())
-res = cur.execute("SELECT t0.c2 FROM t0 GROUP BY t0.c2")
-print(res.fetchone())
-res = cur.execute("SELECT ALL t0.c2 FROM t0 GROUP BY t0.c2 HAVING ((((((COUNT(t0.c1)) NOT NULL))AND(((t0.c0) BETWEEN (t0.c0) AND (t0.c2)))))AND(t0.c2)) UNION ALL SELECT ALL t0.c2 FROM t0 GROUP BY t0.c2 HAVING (NOT (((((((COUNT(t0.c1)) NOT NULL))AND(((t0.c0) BETWEEN (t0.c0) AND (t0.c2)))))AND(t0.c2)))) UNION ALL SELECT ALL t0.c2 FROM t0 GROUP BY t0.c2 HAVING ((((((((COUNT(t0.c1)) NOT NULL))AND(((t0.c0) BETWEEN (t0.c0) AND (t0.c2)))))AND(t0.c2))) ISNULL)")
-print(res.fetchone())
+total = 0
+bug = 0
+for db in os.listdir(args.dbs_path):
+    sql = db[:-3]+".sql"
+    log = os.path.join(args.queries_path, db[:-3]+".log")
+    if db[:-3] + ".log" not in os.listdir(args.queries_path):
+        continue
+    if sql not in os.listdir(args.queries_path):
+        continue
+    con = sqlite3.connect(db)
+    cur = con.cursor()
+    for line in open(log).readlines():
+        try:
+            cur.execute(line)
+            con.commit()
+        except:
+            pass
+    
+    line = open(os.path.join(args.queries_path, sql)).readlines()
+    sql_one = line[0]
+    sql_two = line[1]
+    try:
+        res_one = cur.execute(sql_one)
+        res_one = cur.fetchone()
+        res_two = cur.execute(sql_two)
+        res_two = cur.fetchone()
+        file_one = open(os.path.join(args.queries_path, db[:-3]+"_"+sqlite3.sqlite_version+"_result_one.txt"),'w')
+        file_one.write(str(res_one))
+        file_one.close()
+        file_two = open(os.path.join(args.queries_path, db[:-3]+"_"+sqlite3.sqlite_version+"_result_two.txt"),'w')
+        file_two.write(str(res_two))
+        file_two.close()
+        if res_one != res_two:
+            bug += 1
+        total += 1
+    except:
+        con.close()
+        continue
+        pass
+
+    con.close()
+print(sqlite3.sqlite_version)
+print("total: ", total, "correct: ",total-bug)
