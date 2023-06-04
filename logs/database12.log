@@ -1,0 +1,98 @@
+--java.lang.AssertionError: SELECT ALL v0.c0, v0.c3, v0.c1 FROM v0, t0 GROUP BY v0.c0, v0.c3, v0.c1;
+--SELECT ALL v0.c0, v0.c3, v0.c1 FROM v0, t0 NOT INDEXED GROUP BY v0.c0, v0.c3, v0.c1 HAVING (((SUM(v0.c3)))>((CASE WHEN COUNT(v0.c2) THEN t0.c1 END))) UNION ALL SELECT v0.c0, v0.c3, v0.c1 FROM v0, t0 GROUP BY v0.c0, v0.c3, v0.c1 HAVING (NOT ((((SUM(v0.c3)))>((CASE WHEN COUNT(v0.c2) THEN t0.c1 END))))) UNION ALL SELECT v0.c0, v0.c3, v0.c1 FROM v0, t0 GROUP BY v0.c0, v0.c3, v0.c1 HAVING (((((SUM(v0.c3)))>((CASE WHEN COUNT(v0.c2) THEN t0.c1 END)))) ISNULL);
+--	at sqlancer.sqlite3.oracle.tlp.SQLite3TLPHavingOracle.check(SQLite3TLPHavingOracle.java:85)
+--	at sqlancer.common.oracle.CompositeTestOracle.check(CompositeTestOracle.java:22)
+--	at sqlancer.ProviderAdapter.generateAndTestDatabase(ProviderAdapter.java:61)
+--	at sqlancer.Main$DBMSExecutor.run(Main.java:364)
+--	at sqlancer.Main$2.run(Main.java:559)
+--	at sqlancer.Main$2.runThread(Main.java:541)
+--	at sqlancer.Main$2.run(Main.java:532)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+--	at java.base/java.lang.Thread.run(Thread.java:1623)
+---- Time: 2023/05/28 03:49:20
+-- Database: database12
+-- Database version: 3.40.0
+-- seed value: 1685214884974
+PRAGMA cache_size = 50000;
+PRAGMA temp_store=MEMORY;
+PRAGMA synchronous=off;
+PRAGMA case_sensitive_like=ON;
+CREATE TABLE t0 (c0 INT , c1 REAL , c2 TEXT );
+INSERT OR IGNORE INTO t0(c0, c1, c2) VALUES (x'88b7', '', 0.035741624590720056);
+CREATE INDEX i27 ON t0(((((c2)||(c1)))&((- (c2)))) ASC,c1 COLLATE NOCASE DESC,(((x'6acb')) BETWEEN ((((c1) IS FALSE))) AND ((((c0)<>(c0))))) COLLATE NOCASE);
+INSERT OR IGNORE INTO t0(c1) VALUES (NULL), (x'91fe'), (NULL), ('741016391'), (x'');
+ANALYZE i27;
+INSERT OR IGNORE INTO t0(c0) VALUES ('(1');
+BEGIN  TRANSACTION;
+PRAGMA foreign_keys;
+INSERT OR IGNORE INTO t0(c0) VALUES (x'ebb1');
+INSERT OR IGNORE INTO t0(c2, c0) VALUES (x'', '741016391');
+PRAGMA main.journal_mode = TRUNCATE;
+PRAGMA main.incremental_vacuum;
+BEGIN DEFERRED TRANSACTION;
+BEGIN  TRANSACTION;
+INSERT OR IGNORE INTO t0(c1, c0) VALUES (x'95b5', 0.3891139750837972);
+INSERT OR FAIL INTO t0(c2, c0) VALUES (x'fd81', x'');
+INSERT OR IGNORE INTO t0(c2) VALUES (x'');
+PRAGMA temp.stats;
+CREATE INDEX i10 ON t0(((LIKE(c0, c1, '7'))+(c1 COLLATE RTRIM)),((x'')|(((c2)<>(c2)))) COLLATE RTRIM DESC,(((((c2)) BETWEEN ((c2)) AND ((c1)))) BETWEEN (c0 COLLATE NOCASE) AND (((c1) NOT BETWEEN (c0) AND (c2)))) ASC) WHERE (((c2)%(c0)) IN ('7͇' COLLATE NOCASE));
+CREATE UNIQUE INDEX IF NOT EXISTS i24 ON t0(c0 ASC,c0 COLLATE RTRIM,(((((c1)IS(c1))))<=(((((c2))>((c2)))))) COLLATE BINARY) WHERE (((((c1))<=((c0))))OR(((NULL)IS('I'))));
+ANALYZE t0;
+INSERT OR FAIL INTO t0(c2) VALUES (NULL);
+PRAGMA temp.journal_size_limit;
+PRAGMA secure_delete = false;
+INSERT OR FAIL INTO t0(c2, c0) VALUES (x'', 1492406941);
+BEGIN  TRANSACTION;
+PRAGMA incremental_vacuum(-1079981576);
+UPDATE OR ABORT t0 SET c2=0.9638741186956141;
+REINDEX RTRIM;
+ANALYZE i27;
+REINDEX  t0;
+REINDEX i24;
+INSERT OR ABORT INTO t0(c2, c1) VALUES (NULL, '741016391'), (x'', x''), (0.8582762785405439, 0x58f4529d);
+PRAGMA shrink_memory;
+INSERT OR IGNORE INTO sqlite_stat1 VALUES('t0', 't0', '');
+INSERT OR FAIL INTO t0 VALUES ('741016391', NULL, NULL), (x'', x'', NULL), ('(1', x'3d09', 0.11183111562601211);
+VACUUM main;
+VACUUM temp;
+UPDATE t0 SET c0=0x2899afe4 WHERE (~ (((t0.c0)<=(t0.c1))));
+INSERT OR ROLLBACK INTO t0(c2) VALUES (x'8498'), (0.8756668614316289), (0.051027065940703165);
+UPDATE t0 SET c2='';
+CREATE UNIQUE INDEX i25 ON t0(((((((c1)AND(c0)))AND(c1))) NOT BETWEEN (CASE c0  WHEN c1 THEN c1 ELSE c2 END) AND (CASE WHEN c1 THEN '-1125399843' ELSE NULL END)) COLLATE BINARY,'FJ',CAST((c0 IN ()) AS INTEGER) COLLATE BINARY);
+CREATE UNIQUE INDEX IF NOT EXISTS i92 ON t0(((CAST(c2 AS TEXT)) BETWEEN (c0) AND (x'')),(NOT (c2)) COLLATE BINARY,((((c0)>=(c1))) IS TRUE) DESC) WHERE ((((c0) BETWEEN (c1) AND (c1))) NOT BETWEEN (json_array(c2, c1)) AND ((NULL IN ())));
+CREATE INDEX i88 ON t0(TIME(c2, ((c2)/(c0)), ((c0)*(c0))),((((((0.19859802874299426) ISNULL))OR(c0)))OR((+ (c0)))) COLLATE NOCASE,((CAST(c2 AS TEXT)) BETWEEN (x'') AND (400856525)));
+ROLLBACK TRANSACTION;
+ANALYZE;
+REINDEX  t0;
+UPDATE OR IGNORE t0 SET c1=NULL;
+PRAGMA cache_spill;
+PRAGMA legacy_file_format = false;
+REINDEX i27;
+INSERT OR FAIL INTO t0(c0, c1) VALUES ('', '-1079981576'), ('9x', NULL), (0Xffffffffcbe88a57, -1.125399843E9);
+ANALYZE sqlite_master;
+ANALYZE;
+UPDATE OR IGNORE t0 SET (c2, c2)=('-1609431883', x'') WHERE x'';
+CREATE INDEX IF NOT EXISTS i96 ON t0(((((c0)OR(c2)))%(((c0) ISNULL))) COLLATE NOCASE ASC,(CAST(c1 AS NUMERIC) IN (((c2) BETWEEN (0.6494235475788608) AND (c0)), (c0 IN (c0)))) COLLATE BINARY,DATETIME((((c2))!=((c0))), ((c1)&(c1)), x'a026', c1 COLLATE BINARY, '?rckff9E>')) WHERE c1;
+INSERT OR IGNORE INTO t0(c2, c0) VALUES (1830727194, x'a747'), ('莋2', 0.11183111562601211), ('fj', x'');
+REINDEX;
+ANALYZE t0;
+UPDATE OR IGNORE t0 SET (c2)=(NULL) WHERE t0.c0;
+PRAGMA main.integrity_check;
+INSERT OR IGNORE INTO t0(c2) VALUES (x'');
+VACUUM;
+INSERT OR IGNORE INTO t0(c2, c0) VALUES ('-1604420910', x'36d7');
+UPDATE t0 SET (c0)=(NULL);
+REINDEX;
+UPDATE OR IGNORE t0 SET (c0)=(x'') WHERE ']U';
+UPDATE OR IGNORE t0 SET c1=6.81160676E8 WHERE (((t0.c2)) BETWEEN (((- (t0.c2)))) AND ((t0.c0)));
+INSERT OR IGNORE INTO t0(c1, c0, c2) VALUES ('-1761576471', 0.7634368165384047, NULL);
+INSERT OR ABORT INTO t0(c1, c2, c0) VALUES ('2', '-873952681', NULL), (NULL, 0.19859802874299426, NULL), (x'be91', x'10ba', x'');
+UPDATE t0 SET c0=x'', c1='-1906499613', c0='400856525', c1=0X6d444ef8 WHERE STRFTIME(t0.c0, t0.c2, t0.c0, t0.c1, t0.c1) COLLATE RTRIM;
+INSERT OR IGNORE INTO sqlite_stat1 VALUES('t0', 'i96', ' sz=0 unordered noskipscan');
+END TRANSACTION;
+BEGIN  TRANSACTION;
+CREATE TEMPORARY VIEW  IF NOT EXISTS v0(c0, c1, c2, c3, c4) AS SELECT ((- (t0.c1)) IN ((t0.c1 IN ()))), CAST(CASE WHEN t0.c1 THEN t0.c1 END AS TEXT), AVG(((((x'')OR(t0.c1)))OR(t0.c2))), (((t0.c2)*(t0.c1)) IN ()), t0.c0 FROM t0;
+BEGIN  TRANSACTION;
+COMMIT TRANSACTION;
+ROLLBACK TRANSACTION;

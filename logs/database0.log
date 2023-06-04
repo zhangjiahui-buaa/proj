@@ -1,0 +1,89 @@
+--java.lang.AssertionError: the size of the result sets mismatch (10 and 12)!
+---- SELECT * FROM v0;
+---- cardinality: 10
+---- SELECT ALL * FROM v0 WHERE ((CAST(v0.c0 AS TEXT) IN (CAST(v0.c0 AS INTEGER)))) UNION ALL SELECT * FROM v0 WHERE ((NOT ((CAST(v0.c0 AS TEXT) IN (CAST(v0.c0 AS INTEGER)))))) UNION ALL SELECT * FROM v0 WHERE ((((CAST(v0.c0 AS TEXT) IN (CAST(v0.c0 AS INTEGER)))) ISNULL));
+---- cardinality: 12
+--	at sqlancer.ComparatorHelper.assumeResultSetsAreEqual(ComparatorHelper.java:97)
+--	at sqlancer.sqlite3.oracle.tlp.SQLite3TLPWhereOracle.check(SQLite3TLPWhereOracle.java:41)
+--	at sqlancer.common.oracle.CompositeTestOracle.check(CompositeTestOracle.java:22)
+--	at sqlancer.ProviderAdapter.generateAndTestDatabase(ProviderAdapter.java:61)
+--	at sqlancer.Main$DBMSExecutor.run(Main.java:364)
+--	at sqlancer.Main$2.run(Main.java:559)
+--	at sqlancer.Main$2.runThread(Main.java:541)
+--	at sqlancer.Main$2.run(Main.java:532)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+--	at java.base/java.lang.Thread.run(Thread.java:1623)
+---- Time: 2023/05/27 21:42:31
+-- Database: database0
+-- Database version: 3.40.0
+-- seed value: 1685214884960
+PRAGMA cache_size = 50000;
+PRAGMA temp_store=MEMORY;
+PRAGMA synchronous=off;
+PRAGMA case_sensitive_like=ON;
+CREATE VIRTUAL TABLE vt0 USING fts5(c0 UNINDEXED);
+INSERT INTO vt0(vt0) VALUES('merge=-1555569941,7');\n;
+INSERT INTO vt0(vt0) VALUES('integrity-check');
+INSERT OR FAIL INTO vt0(c0) VALUES (NULL);
+BEGIN  TRANSACTION;
+INSERT OR IGNORE INTO vt0 VALUES ('-1555569941');
+ANALYZE;
+COMMIT;
+INSERT OR FAIL INTO vt0 VALUES ('-1555569941');
+INSERT OR FAIL INTO vt0 VALUES ('TRUE'), ('()'), (-1.555569941E9);
+INSERT OR IGNORE INTO vt0(c0) VALUES (0.547705002555277);
+INSERT OR IGNORE INTO sqlite_stat1 VALUES('vt0', 'null', ' unordered noskipscan');
+INSERT OR IGNORE INTO vt0 VALUES (x'');
+INSERT OR ABORT INTO vt0 VALUES (0.7900276205298953);
+END;
+DELETE FROM sqlite_stat1 WHERE ((QUOTE(0xffffffffa347e2eb))+((('-1555569941')||(-1.555569941E9))));
+BEGIN  TRANSACTION;
+INSERT OR IGNORE INTO vt0(c0) VALUES ('');
+END;
+INSERT OR FAIL INTO vt0 VALUES (x'ad24');
+INSERT OR IGNORE INTO vt0(c0) VALUES (x''), (NULL), (0.547705002555277);
+BEGIN  TRANSACTION;
+ANALYZE;
+INSERT OR ROLLBACK INTO vt0(c0) VALUES (0Xffffffffa347e2eb);
+INSERT INTO vt0(vt0) VALUES('merge=-1555569941,6');\n;
+INSERT INTO vt0(vt0) VALUES('rebuild');
+END;
+INSERT OR ROLLBACK INTO vt0(c0) VALUES (x'6608');
+ROLLBACK TRANSACTION;
+INSERT INTO vt0(vt0) VALUES('rebuild');
+DELETE FROM sqlite_stat1;
+BEGIN  TRANSACTION;
+VACUUM main;
+VACUUM temp;
+DELETE FROM sqlite_stat1;
+INSERT OR IGNORE INTO vt0(c0) VALUES (x'');
+INSERT OR FAIL INTO vt0 VALUES (x'2260');
+INSERT OR ABORT INTO vt0 VALUES (0.966011527265433);
+INSERT OR ROLLBACK INTO vt0 VALUES ('()');
+BEGIN  TRANSACTION;
+COMMIT TRANSACTION;
+INSERT OR IGNORE INTO vt0(c0) VALUES ('1463537072');
+REINDEX  vt0;
+INSERT INTO vt0(vt0, rank) VALUES('usermerge', 5);
+INSERT INTO vt0(vt0) VALUES('merge=191765652,13');\n;
+INSERT INTO vt0(vt0, rank) VALUES('crisismerge', 1112095263);
+ANALYZE;
+INSERT OR IGNORE INTO vt0(c0) VALUES ('-1763550425');
+END TRANSACTION;
+CREATE TEMP VIEW  IF NOT EXISTS v0(c0) AS SELECT DISTINCT CASE ((vt0.c0) NOT BETWEEN ('v෿(B') AND (vt0.c0))  WHEN CASE vt0.c0  WHEN x'' THEN vt0.c0 END THEN (((0.8757995116679489)) NOT BETWEEN ((vt0.c0)) AND ((vt0.c0))) ELSE (- (vt0.c0)) END FROM vt0 WHERE ((~ (((x'fb09') NOT NULL))));
+INSERT OR REPLACE INTO vt0 VALUES (-1.763550425E9);
+COMMIT TRANSACTION;
+REINDEX;
+ROLLBACK TRANSACTION;
+ROLLBACK TRANSACTION;
+INSERT INTO vt0(vt0) VALUES('automerge=15');
+INSERT INTO vt0(vt0, rank) VALUES('crisismerge', 533615353);
+VACUUM;
+INSERT OR FAIL INTO vt0(c0) VALUES (191765652);
+INSERT OR IGNORE INTO vt0 VALUES (0.4570323759181091), (x''), (x'ed5d');
+INSERT OR FAIL INTO vt0(c0) VALUES ('#dFJ#qhE');
+REINDEX;
+COMMIT;
+ROLLBACK TRANSACTION;
+-- SELECT * FROM v0;\n-- cardinality: 10\n-- SELECT ALL * FROM v0 WHERE ((CAST(v0.c0 AS TEXT) IN (CAST(v0.c0 AS INTEGER)))) UNION ALL SELECT * FROM v0 WHERE ((NOT ((CAST(v0.c0 AS TEXT) IN (CAST(v0.c0 AS INTEGER)))))) UNION ALL SELECT * FROM v0 WHERE ((((CAST(v0.c0 AS TEXT) IN (CAST(v0.c0 AS INTEGER)))) ISNULL));\n-- cardinality: 12;

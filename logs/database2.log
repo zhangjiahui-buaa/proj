@@ -1,0 +1,142 @@
+--java.lang.AssertionError: the size of the result sets mismatch (2 and 3)!
+---- SELECT v0.c0 FROM v0;
+---- cardinality: 2
+---- SELECT v0.c0 FROM v0 WHERE (((((v0.c0)<(v0.c0)))GLOB(CASE WHEN v0.c0 THEN '905991632' ELSE v0.c0 END))) UNION ALL SELECT ALL v0.c0 FROM v0 WHERE ((NOT (((((v0.c0)<(v0.c0)))GLOB(CASE WHEN v0.c0 THEN '905991632' ELSE v0.c0 END))))) UNION ALL SELECT ALL v0.c0 FROM v0 WHERE (((((((v0.c0)<(v0.c0)))GLOB(CASE WHEN v0.c0 THEN '905991632' ELSE v0.c0 END))) ISNULL));
+---- cardinality: 3
+--	at sqlancer.ComparatorHelper.assumeResultSetsAreEqual(ComparatorHelper.java:97)
+--	at sqlancer.sqlite3.oracle.tlp.SQLite3TLPWhereOracle.check(SQLite3TLPWhereOracle.java:41)
+--	at sqlancer.common.oracle.CompositeTestOracle.check(CompositeTestOracle.java:22)
+--	at sqlancer.ProviderAdapter.generateAndTestDatabase(ProviderAdapter.java:61)
+--	at sqlancer.Main$DBMSExecutor.run(Main.java:364)
+--	at sqlancer.Main$2.run(Main.java:559)
+--	at sqlancer.Main$2.runThread(Main.java:541)
+--	at sqlancer.Main$2.run(Main.java:532)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+--	at java.base/java.lang.Thread.run(Thread.java:1623)
+---- Time: 2023/05/28 05:21:52
+-- Database: database2
+-- Database version: 3.40.0
+-- seed value: 1685214884963
+PRAGMA cache_size = 50000;
+PRAGMA temp_store=MEMORY;
+PRAGMA synchronous=off;
+PRAGMA case_sensitive_like=ON;
+CREATE VIRTUAL TABLE vt0 USING fts4(c0, c1 UNINDEXED);
+INSERT INTO vt0(vt0, rank) VALUES('crisismerge', 1965551584);
+INSERT INTO vt0(vt0) VALUES('rebuild');
+INSERT OR IGNORE INTO vt0(c1) VALUES ('mFp䙬');
+INSERT INTO vt0(vt0, rank) VALUES('rank', 'bm25(10.0, 5.0)');
+INSERT INTO vt0(vt0, rank) VALUES('pgsz', '13581');
+INSERT INTO vt0(vt0, rank) VALUES('rank', 'bm25(10.0, 5.0)');
+INSERT INTO vt0(vt0) VALUES('rebuild');
+UPDATE OR IGNORE vt0 SET c0=NULL WHERE NULL;
+UPDATE OR IGNORE vt0 SET (c0)=('1077233260');
+ROLLBACK TRANSACTION;
+ROLLBACK TRANSACTION;
+INSERT OR IGNORE INTO vt0 VALUES ('', x'');
+INSERT OR IGNORE INTO vt0(c1, c0) VALUES ('B}w50', x'');
+INSERT OR IGNORE INTO vt0 VALUES (-1683410589, 'I6nNqy0');
+INSERT OR ROLLBACK INTO vt0 VALUES ('-1683410589', -1.683410589E9), (x'', 0.17530477720758075), (0.31541116570595384, '9223372036854775807');
+INSERT INTO vt0(vt0, rank) VALUES('merge', 351072553);\n;
+INSERT INTO vt0(vt0, rank) VALUES('usermerge', 5);
+INSERT INTO vt0(vt0, rank) VALUES('pgsz', '27358');
+INSERT INTO vt0(vt0, rank) VALUES('rank', 'bm25(10.0, 5.0)');
+INSERT INTO vt0(vt0, rank) VALUES('automerge', 15);
+INSERT INTO vt0(vt0, rank) VALUES('rank', 'bm25(10.0, 5.0)');
+INSERT INTO vt0(vt0) VALUES('integrity-check');
+UPDATE vt0 SET c0=NULL;
+INSERT INTO vt0(vt0) VALUES('rebuild');
+UPDATE OR IGNORE vt0 SET c0='.v';
+INSERT OR FAIL INTO vt0 VALUES (NULL, 0.8721992600951051);
+BEGIN  TRANSACTION;
+VACUUM main;
+VACUUM;
+VACUUM;
+VACUUM main;
+VACUUM main;
+VACUUM;
+VACUUM;
+VACUUM;
+VACUUM temp;
+INSERT INTO vt0(vt0) VALUES('rebuild');
+UPDATE OR IGNORE vt0 SET (c0)=(NULL) WHERE (- (((vt0.c0)*(vt0.c0))));
+UPDATE vt0 SET (c1)=('1077233260') WHERE ((((vt0.c0)&(x''))) BETWEEN (CAST(vt0.c0 AS REAL)) AND ((vt0.c1 IN ())));
+UPDATE OR REPLACE vt0 SET (c0)=(NULL);
+INSERT OR IGNORE INTO vt0 VALUES (0.2774729665728205, '.v');
+UPDATE OR IGNORE vt0 SET c0='HIT륀K>' WHERE -875061018;
+INSERT OR IGNORE INTO vt0(c1) VALUES (0.5191198103513207);
+INSERT INTO vt0(vt0, rank) VALUES('usermerge', 10);
+INSERT INTO vt0(vt0) VALUES('merge=-2115366065,2');\n;
+INSERT INTO vt0(vt0) VALUES('integrity-check');
+CREATE TEMPORARY VIEW v0(c0) AS SELECT DISTINCT (((NOT (vt0.c0)))-(((vt0.c0)-(vt0.c0)))) FROM vt0 WHERE (((CASE WHEN '-1479292922' THEN NULL ELSE x'' END) ISNULL));
+UPDATE OR IGNORE vt0 SET (c0)=(x'');
+INSERT INTO vt0(vt0, rank) VALUES('crisismerge', 1040722514);
+INSERT INTO vt0(vt0) VALUES('merge=569244606,15');\n;
+COMMIT TRANSACTION;
+REINDEX;
+INSERT INTO vt0(vt0) VALUES('optimize');
+INSERT INTO vt0(vt0) VALUES('optimize');
+ROLLBACK TRANSACTION;
+UPDATE OR IGNORE vt0 SET c0=3.51072553E8, c1='.v' WHERE ABS(CAST(vt0.c1 AS NUMERIC));
+UPDATE OR IGNORE vt0 SET (c1)=('0.5191198103513207');
+COMMIT;
+INSERT OR REPLACE INTO vt0(c0) VALUES (0.7735307279714034);
+INSERT INTO vt0(vt0) VALUES('optimize');
+INSERT INTO vt0(vt0) VALUES('rebuild');
+INSERT INTO vt0(vt0) VALUES('rebuild');
+INSERT OR REPLACE INTO vt0(c1) VALUES (NULL);
+INSERT INTO vt0(vt0) VALUES('rebuild');
+INSERT INTO vt0(vt0) VALUES('merge=-2128039141,12');\n;
+INSERT INTO vt0(vt0) VALUES('optimize');
+ANALYZE vt0;
+INSERT INTO vt0(vt0, rank) VALUES('pgsz', '14342');
+INSERT INTO vt0(vt0, rank) VALUES('merge', 1274705593);\n;
+INSERT INTO vt0(vt0) VALUES('rebuild');
+BEGIN  TRANSACTION;
+PRAGMA shrink_memory;
+INSERT OR ROLLBACK INTO vt0 VALUES (x'', NULL);
+INSERT OR ROLLBACK INTO vt0(c1) VALUES (-461548941);
+REINDEX  vt0;
+INSERT OR IGNORE INTO vt0 VALUES (x'', x'');
+INSERT OR IGNORE INTO vt0 VALUES (x'', '4YK.2\rjS|'), (x'', 0Xffffffffc0e4605d), (0.10057708020686762, '%[q(p1!\n');
+INSERT OR IGNORE INTO vt0 VALUES ('-2115366065', 0.7148221050975614), (x'', x''), ('H{', '0.2774729665728205');
+UPDATE OR REPLACE vt0 SET c0=x'9d77';
+INSERT OR ROLLBACK INTO vt0(c0) VALUES (x'');
+BEGIN  TRANSACTION;
+END;
+UPDATE OR IGNORE vt0 SET (c1)=('');
+END;
+INSERT OR ABORT INTO vt0(c0) VALUES (-875061018), (1.274705593E9), ('213726139');
+REINDEX;
+BEGIN IMMEDIATE TRANSACTION;
+INSERT OR IGNORE INTO vt0(c0) VALUES (0.014098704173822973);
+UPDATE OR IGNORE vt0 SET (c0)=(0.16352696931827704);
+REINDEX;
+INSERT INTO vt0(vt0, rank) VALUES('pgsz', '11341');
+INSERT INTO vt0(vt0, rank) VALUES('pgsz', '29220');
+INSERT INTO vt0(vt0, rank) VALUES('usermerge', 15);
+INSERT INTO vt0(vt0) VALUES('automerge=9');
+ANALYZE;
+INSERT INTO vt0(vt0) VALUES('automerge=14');
+ANALYZE temp;
+INSERT OR FAIL INTO vt0 VALUES (0.7973568066227782, x'');
+UPDATE vt0 SET (c1)=(0.4987036317419453);
+INSERT OR ROLLBACK INTO vt0 VALUES (x'', 1.7976931348623157E308);
+INSERT INTO vt0(vt0, rank) VALUES('merge', -1058774947);\n;
+INSERT INTO vt0(vt0, rank) VALUES('usermerge', 2);
+INSERT INTO vt0(vt0) VALUES('merge=228020406,13');\n;
+BEGIN IMMEDIATE TRANSACTION;
+INSERT OR REPLACE INTO vt0(c0, c1) VALUES (-1479292922, ((CASE WHEN 0.17530477720758075 THEN NULL ELSE 0.8762140998010415 END)<<((+ ('찮R2 젆Y㳾%3')))));
+UPDATE OR IGNORE vt0 SET c1='1077233260' WHERE CASE WHEN (+ (vt0.c1)) THEN -1160030322 WHEN CASE vt0.c1  WHEN vt0.c1 THEN vt0.c0 END THEN vt0.c1 WHEN ((vt0.c1) NOT BETWEEN (vt0.c0) AND (vt0.c0)) THEN ((vt0.c0) BETWEEN (vt0.c1) AND (vt0.c1)) ELSE (('-418103586')&(vt0.c0)) END;
+INSERT INTO vt0(vt0) VALUES('optimize');
+VACUUM temp;
+REINDEX;
+UPDATE vt0 SET c1=x'';
+INSERT INTO vt0(vt0) VALUES('automerge=7');
+INSERT INTO vt0(vt0, rank) VALUES('usermerge', 13);
+INSERT INTO vt0(vt0, rank) VALUES('pgsz', '36977');
+INSERT INTO vt0(vt0) VALUES('automerge=2');
+END;
+ROLLBACK TRANSACTION;
+-- SELECT v0.c0 FROM v0;\n-- cardinality: 2\n-- SELECT v0.c0 FROM v0 WHERE (((((v0.c0)<(v0.c0)))GLOB(CASE WHEN v0.c0 THEN '905991632' ELSE v0.c0 END))) UNION ALL SELECT ALL v0.c0 FROM v0 WHERE ((NOT (((((v0.c0)<(v0.c0)))GLOB(CASE WHEN v0.c0 THEN '905991632' ELSE v0.c0 END))))) UNION ALL SELECT ALL v0.c0 FROM v0 WHERE (((((((v0.c0)<(v0.c0)))GLOB(CASE WHEN v0.c0 THEN '905991632' ELSE v0.c0 END))) ISNULL));\n-- cardinality: 3;

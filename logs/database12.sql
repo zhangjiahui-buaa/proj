@@ -1,0 +1,2 @@
+SELECT ALL v0.c0, v0.c3, v0.c1 FROM v0, t0 GROUP BY v0.c0, v0.c3, v0.c1;
+SELECT ALL v0.c0, v0.c3, v0.c1 FROM v0, t0 NOT INDEXED GROUP BY v0.c0, v0.c3, v0.c1 HAVING (((SUM(v0.c3)))>((CASE WHEN COUNT(v0.c2) THEN t0.c1 END))) UNION ALL SELECT v0.c0, v0.c3, v0.c1 FROM v0, t0 GROUP BY v0.c0, v0.c3, v0.c1 HAVING (NOT ((((SUM(v0.c3)))>((CASE WHEN COUNT(v0.c2) THEN t0.c1 END))))) UNION ALL SELECT v0.c0, v0.c3, v0.c1 FROM v0, t0 GROUP BY v0.c0, v0.c3, v0.c1 HAVING (((((SUM(v0.c3)))>((CASE WHEN COUNT(v0.c2) THEN t0.c1 END)))) ISNULL);

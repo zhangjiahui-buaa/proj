@@ -1,0 +1,2 @@
+SELECT v0.c2 FROM v0;
+SELECT v0.c2 FROM v0 WHERE ((- (json_quote(v0.c1)))) UNION ALL SELECT ALL v0.c2 FROM v0 WHERE ((NOT ((- (json_quote(v0.c1)))))) UNION ALL SELECT ALL v0.c2 FROM v0 WHERE ((((- (json_quote(v0.c1)))) ISNULL));

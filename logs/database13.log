@@ -1,0 +1,89 @@
+--java.lang.AssertionError: the size of the result sets mismatch (5 and 0)!
+---- SELECT DISTINCT rt0.c1, rt1.c0, rt1.c2, rt1.c3, rt0.c2 FROM rt0 NOT INDEXED FULL OUTER JOIN rt1 ON ((rt1.c0 COLLATE NOCASE) IS FALSE) INNER JOIN v0 ON rt0.c1;
+---- cardinality: 5
+---- SELECT DISTINCT rt0.c1, rt1.c0, rt1.c2, rt1.c3, rt0.c2 FROM rt0 FULL OUTER JOIN rt1 ON ((rt1.c0 COLLATE NOCASE) IS FALSE) INNER JOIN v0 ON rt0.c1 WHERE (((rt0.c0)+(((((rt0.c2)AND(rt0.c0)))AND(rt1.c2))))) UNION SELECT DISTINCT rt0.c1, rt1.c0, rt1.c2, rt1.c3, rt0.c2 FROM rt0 FULL OUTER JOIN rt1 ON ((rt1.c0 COLLATE NOCASE) IS FALSE) INNER JOIN v0 ON rt0.c1 WHERE ((NOT (((rt0.c0)+(((((rt0.c2)AND(rt0.c0)))AND(rt1.c2))))))) UNION SELECT DISTINCT rt0.c1, rt1.c0, rt1.c2, rt1.c3, rt0.c2 FROM rt0 FULL OUTER JOIN rt1 ON ((rt1.c0 COLLATE NOCASE) IS FALSE) INNER JOIN v0 ON rt0.c1 WHERE (((((rt0.c0)+(((((rt0.c2)AND(rt0.c0)))AND(rt1.c2))))) ISNULL));
+---- cardinality: 0
+--	at sqlancer.ComparatorHelper.assumeResultSetsAreEqual(ComparatorHelper.java:97)
+--	at sqlancer.sqlite3.oracle.tlp.SQLite3TLPDistinctOracle.check(SQLite3TLPDistinctOracle.java:38)
+--	at sqlancer.common.oracle.CompositeTestOracle.check(CompositeTestOracle.java:22)
+--	at sqlancer.ProviderAdapter.generateAndTestDatabase(ProviderAdapter.java:61)
+--	at sqlancer.Main$DBMSExecutor.run(Main.java:364)
+--	at sqlancer.Main$2.run(Main.java:559)
+--	at sqlancer.Main$2.runThread(Main.java:541)
+--	at sqlancer.Main$2.run(Main.java:532)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+--	at java.base/java.lang.Thread.run(Thread.java:1623)
+---- Time: 2023/05/27 22:35:21
+-- Database: database13
+-- Database version: 3.40.0
+-- seed value: 1685214884975
+PRAGMA cache_size = 50000;
+PRAGMA temp_store=MEMORY;
+PRAGMA synchronous=off;
+CREATE VIRTUAL TABLE rt0 USING rtree(c0, c1, c2, +c3 INT );
+CREATE VIRTUAL TABLE rt1 USING rtree(c0, c1, c2, +c3 REAL , +c4 INT );
+UPDATE OR IGNORE rt1 SET c1='wF~I胸F&n';
+UPDATE OR IGNORE rt0 SET (c1)=(x'f168') WHERE NULL;
+ANALYZE;
+END;
+UPDATE OR FAIL rt0 SET c3='1108434208', c3=x'';
+UPDATE OR IGNORE rt0 SET c2=1.108434208E9;
+ROLLBACK TRANSACTION;
+ROLLBACK TRANSACTION;
+ROLLBACK TRANSACTION;
+BEGIN  TRANSACTION;
+ANALYZE main;
+INSERT OR IGNORE INTO sqlite_stat1 VALUES('rt0', 'rt0', ' unordered noskipscan');
+END;
+INSERT OR IGNORE INTO rt1(c4, c1, c2) VALUES ('UC', 0.03226680621904676, 0.014061976288539446), (x'5ce4', x'', NULL), (x'92d4', 0.03861500038596888, 0.7131548945306444);
+ROLLBACK TRANSACTION;
+PRAGMA main.shrink_memory;
+INSERT OR IGNORE INTO sqlite_stat1 VALUES('rt1', 'null', ' sz=-1478816125');
+UPDATE rt1 SET (c4)=(0xfffffffff9ccf7c1) WHERE (((rt1.c1, rt1.c3, rt1.c3)) NOT BETWEEN ((((rt1.c4) NOT NULL), rt1.c0, CASE rt1.c0  WHEN rt1.c3 THEN rt1.c3 END)) AND ((CAST(rt1.c3 AS BLOB), rt1.c0, (('1673334848')<(rt1.c1)))));
+UPDATE rt1 SET (c1)=('-816945107');
+UPDATE rt1 SET c2=0xffffffffe9cb8ee2, c4=0.26378792794131023;
+BEGIN IMMEDIATE TRANSACTION;
+BEGIN EXCLUSIVE TRANSACTION;
+SELECT rtreecheck('rt0');
+ANALYZE temp;
+UPDATE OR IGNORE rt1 SET (c2)=(0.8489196908571538) WHERE (((((rt1.c1)) NOT BETWEEN ((rt1.c3)) AND ((rt1.c1))))IS NOT(rt1.c0));
+REINDEX;
+UPDATE OR IGNORE rt0 SET c3=0.7480835409443354 WHERE CASE (((0.03861500038596888))<((rt0.c0)))  WHEN ((rt0.c0)==(rt0.c0)) THEN '-1478816125' WHEN ((rt0.c0) BETWEEN (rt0.c1) AND (rt0.c2)) THEN x'' WHEN ((rt0.c1) NOT NULL) THEN rt0.c2 END;
+ANALYZE main;
+BEGIN  TRANSACTION;
+UPDATE OR IGNORE rt0 SET (c0)=(x'3b64');
+ROLLBACK TRANSACTION;
+END;
+BEGIN IMMEDIATE TRANSACTION;
+BEGIN  TRANSACTION;
+UPDATE OR IGNORE rt1 SET c1=0Xffffffffbaad805a;
+ANALYZE;
+REINDEX;
+INSERT OR FAIL INTO rt1(c0) VALUES (x'');
+ROLLBACK TRANSACTION;
+CREATE VIEW  IF NOT EXISTS v0(c0) AS SELECT (NOT (CASE rt0.c1  WHEN rt1.c0 THEN rt0.c1 WHEN rt1.c4 THEN rt1.c0 WHEN rt0.c0 THEN rt1.c4 END)) FROM rt1 LEFT OUTER JOIN rt0 ON ((NULL)IS NOT(700132467));
+UPDATE rt1 SET (c3)=(0.2431355932054977);
+PRAGMA temp.cache_size = 0;
+PRAGMA temp.stats;
+COMMIT;
+BEGIN IMMEDIATE TRANSACTION;
+COMMIT TRANSACTION;
+UPDATE OR IGNORE rt0 SET c2=NULL;
+ANALYZE temp;
+INSERT OR FAIL INTO rt0(c1) VALUES (x'2044'), ('0.2431355932054977'), (0.2431355932054977);
+INSERT OR IGNORE INTO rt1(c2, c3, c4) VALUES (x'', '-1148824818', 0.6876699847726169), (NULL, '198154443', NULL), ('', 700132467, 'H}S\r摔OK');
+ROLLBACK TRANSACTION;
+ANALYZE;
+ROLLBACK TRANSACTION;
+COMMIT TRANSACTION;
+UPDATE OR IGNORE rt0 SET c1='wf~i胸f&n', c0=x'b31a', c1=x'';
+ANALYZE;
+REINDEX;
+UPDATE OR FAIL rt1 SET (c2, c1)=(NULL, x'');
+BEGIN EXCLUSIVE TRANSACTION;
+INSERT OR IGNORE INTO sqlite_stat1 VALUES('rt0', 'null', ' sz=113000992');
+UPDATE OR ROLLBACK rt1 SET (c4)=(0.4870975353614414);
+END TRANSACTION;
+ROLLBACK TRANSACTION;
+-- SELECT DISTINCT rt0.c1, rt1.c0, rt1.c2, rt1.c3, rt0.c2 FROM rt0 NOT INDEXED FULL OUTER JOIN rt1 ON ((rt1.c0 COLLATE NOCASE) IS FALSE) INNER JOIN v0 ON rt0.c1;\n-- cardinality: 5\n-- SELECT DISTINCT rt0.c1, rt1.c0, rt1.c2, rt1.c3, rt0.c2 FROM rt0 FULL OUTER JOIN rt1 ON ((rt1.c0 COLLATE NOCASE) IS FALSE) INNER JOIN v0 ON rt0.c1 WHERE (((rt0.c0)+(((((rt0.c2)AND(rt0.c0)))AND(rt1.c2))))) UNION SELECT DISTINCT rt0.c1, rt1.c0, rt1.c2, rt1.c3, rt0.c2 FROM rt0 FULL OUTER JOIN rt1 ON ((rt1.c0 COLLATE NOCASE) IS FALSE) INNER JOIN v0 ON rt0.c1 WHERE ((NOT (((rt0.c0)+(((((rt0.c2)AND(rt0.c0)))AND(rt1.c2))))))) UNION SELECT DISTINCT rt0.c1, rt1.c0, rt1.c2, rt1.c3, rt0.c2 FROM rt0 FULL OUTER JOIN rt1 ON ((rt1.c0 COLLATE NOCASE) IS FALSE) INNER JOIN v0 ON rt0.c1 WHERE (((((rt0.c0)+(((((rt0.c2)AND(rt0.c0)))AND(rt1.c2))))) ISNULL));\n-- cardinality: 0;
